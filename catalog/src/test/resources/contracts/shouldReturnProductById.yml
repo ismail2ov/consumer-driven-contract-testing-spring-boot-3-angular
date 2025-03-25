@@ -1,0 +1,22 @@
+name: Get existing product
+request:
+  method: GET
+  url: /api/products/17035535
+response:
+  status: 200
+  headers:
+    Content-Type: application/json
+  body:
+    id: 17035535
+    name: Cheap product
+    price:
+      amount: 9.99
+      currency: EUR
+
+---
+name: Get non-existing product
+request:
+  method: GET
+  url: /api/products/99999999
+response:
+  status: 404

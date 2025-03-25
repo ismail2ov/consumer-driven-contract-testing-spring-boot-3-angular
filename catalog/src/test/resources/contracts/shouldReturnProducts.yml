@@ -1,0 +1,9 @@
+description: Products list
+request:
+    method: GET
+    url: /api/products
+response:
+    status: 200
+    headers:
+        Content-Type: application/json
+    bodyFromFile: response/products.json

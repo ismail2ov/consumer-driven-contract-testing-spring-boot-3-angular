@@ -1,0 +1,19 @@
+name: Delete existing product
+request:
+  method: DELETE
+  url: /api/products/17005954
+  headers:
+    Content-Type: application/json
+response:
+  status: 204
+
+---
+name: Try to delete non-existing product
+request:
+  method: DELETE
+  url: /api/products/99999999
+  headers:
+    Content-Type: application/json
+response:
+  status: 404
+

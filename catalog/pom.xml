@@ -94,6 +94,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<testFramework>JUNIT5</testFramework>
+					<baseClassForTests>com.paradigmadigital.catalog.BaseTestClass</baseClassForTests>
 				</configuration>
 			</plugin>
 			<plugin>

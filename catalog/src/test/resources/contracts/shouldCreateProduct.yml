@@ -1,0 +1,29 @@
+name: Create product
+request:
+  method: POST
+  url: /api/products
+  headers:
+    Content-Type: application/json
+  body:
+    name: Not so cheap product
+    price:
+      amount: 19.99
+      currency: EUR
+response:
+  status: 204
+
+---
+name: Create product without name
+request:
+  method: POST
+  url: /api/products
+  headers:
+    Content-Type: application/json
+  body:
+    name:
+    price:
+      amount: 19.99
+      currency: EUR
+response:
+  status: 400
+

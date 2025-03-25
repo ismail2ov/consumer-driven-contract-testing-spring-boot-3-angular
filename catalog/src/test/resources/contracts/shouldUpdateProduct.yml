@@ -1,0 +1,29 @@
+name: Update product
+request:
+  method: PUT
+  url: /api/products/17035535
+  headers:
+    Content-Type: application/json
+  body:
+    name: Inexpensive product
+    price:
+      amount: 10.99
+      currency: EUR
+response:
+  status: 204
+
+---
+name: Try to update non-existing product
+request:
+  method: PUT
+  url: /api/products/99999999
+  headers:
+    Content-Type: application/json
+  body:
+    name: Inexpensive product
+    price:
+      amount: 10.99
+      currency: EUR
+response:
+  status: 404
+
