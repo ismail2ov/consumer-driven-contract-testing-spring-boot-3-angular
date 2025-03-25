@@ -4,7 +4,7 @@ This is a simple example of how to use Spring Cloud Contract to create a contrac
 
 ## Producer
 
-We have created a simple application with Spring Boot that does not yet have an implementation, but we have the contracts to be able to create the contracts.
+We have created a simple application with Spring Boot 3 and Spring Cloud Contract.
 
 ### Create the stubs
 
@@ -13,9 +13,9 @@ We have created a simple application with Spring Boot that does not yet have an 
  cd catalog
 ```
 
-- Compile and package the code skipping the tests because we don't have any logic implemented yet
+- Compile and package
 ``` shell
- mvn clean package -DskipTests
+ mvn clean package
 ```
 
 - Build Docker image with the stubs
