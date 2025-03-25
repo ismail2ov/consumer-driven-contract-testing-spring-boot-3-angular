@@ -15,3 +15,13 @@ We have created a simple application with Spring Boot that does not yet have an 
 ``` shell
  mvn clean package -DskipTests
 ```
+
+- Build Docker image with the stubs
+``` shell
+ docker build -f StubrunnerDockerfile --tag paradigmadigital/ecommerce-catalog-stubs .
+```
+
+- Run the stub runner
+``` shell
+ docker run -d --rm  --name ecommerce-catalog-stub-server -p 8080:8080 paradigmadigital/ecommerce-catalog-stubs
+```

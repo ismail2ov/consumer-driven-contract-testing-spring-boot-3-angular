@@ -1,0 +1,21 @@
+FROM ismail2ov/spring-cloud-contract-stub-runner:3.1.1
+
+LABEL Author="Ismail Ahmedov <i.a.ismailov@gmail.com>"
+
+WORKDIR /home/scc
+
+ENV STUBS_GROUP_ID com.paradigma
+ENV STUBS_ARTIFACT_ID catalog
+ENV STUBS_VERSION 0.0.1-SNAPSHOT
+ENV STUBS_FOLDER com/paradigma
+
+ENV STUBRUNNER_PORT 8080
+ENV STUBRUNNER_STUBS_MODE LOCAL
+ENV STUBRUNNER_IDS ${STUBS_GROUP_ID}:${STUBS_ARTIFACT_ID}:${STUBS_VERSION}:stubs:${STUBRUNNER_PORT}
+
+ENV REPOSITORY_FOLDER .m2/repository/${STUBS_FOLDER}/${STUBS_ARTIFACT_ID}/${STUBS_VERSION}/
+
+RUN mkdir -p ${REPOSITORY_FOLDER}
+COPY --chown=scc:scc ./target/${STUBS_ARTIFACT_ID}-${STUBS_VERSION}-stubs.jar ${REPOSITORY_FOLDER}
+
+ENTRYPOINT ["./run.sh"]
