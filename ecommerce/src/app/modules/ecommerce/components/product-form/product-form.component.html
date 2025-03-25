@@ -1,0 +1,24 @@
+<div id="product_form" style="padding:0 20px;">
+  <div *ngIf="isEdit; else newBlock">
+    <h2 id="product_form__title-edit">Edit</h2>
+  </div>
+  <ng-template #newBlock>
+    <h2 id="product_form__title-new">Add</h2>
+  </ng-template>
+  ID: <input type="text" id="product_form__input-id" name="productId" [(ngModel)]="productForm.id" [disabled]="isEdit"><br />
+  Name: <input type="text" id="product_form__input-name" name="productName" [(ngModel)]="productForm.name"> <br />
+  Price amount: <input type="text" id="product_form__input-price_amount" name="productPriceAmount" [(ngModel)]="productForm.price.amount"> <br />
+  Price currency: <input type="text" id="product_form__input-price_currency" name="productPriceCurrency" [(ngModel)]="productForm.price.currency"> <br />
+  <div *ngIf="isEdit; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock><button id="product_form__submit-edit" type="button" (click)="doUpdateProduct()">Actualizar</button>
+  </ng-template>
+  <ng-template #elseBlock><button id="product_form__submit-new" type="button" (click)="doNewProduct()">Crear</button>
+  </ng-template>
+  <br>
+  <br>
+  <a routerLink="/product/list" id="app-navbar__link-product_list">Back to eCommerce catalog</a>
+  <br>
+  <br>
+</div>
+
+<hr>

@@ -1,0 +1,30 @@
+<div id="product_list">
+    <h2 id="product_list__title">eCommerce catalog</h2>
+    <table id="product_list__table">
+        <caption>This table displays a list of products with their ID, name, and price.</caption>
+        <tr id="product_list__table__headers">
+            <th id="product_list__table__headers__id">ID</th>
+            <th id="product_list__table__headers__name">Name</th>
+            <th id="product_list__table__headers__price">Price</th>
+            <th id="product_list__table__headers__operation">Operation</th>
+        </tr>
+        <tr *ngFor="let product of products$ | async; index as i" id="product_list__table__item-{{i}}">
+            <td id="product_list__table__item-{{i}}__product_id">{{ product.id }}</td>
+            <td id="product_list__table__item-{{i}}__product_name">{{ product.name }}</td>
+            <td id="product_list__table__item-{{i}}__product_price">{{ product.price.amount }} {{ product.price.currency }}</td>
+            <td id="product_list__table__item-{{i}}__operation">
+                <button routerLink="/product/form/{{product.id}}"
+                    id="product_list__table__item-{{i}}__product_edit__button">Edit</button>
+                &nbsp;
+                <button (click)="deleteProduct(product.id)"
+                    id="product_list__table__item-{{i}}__product_delete__button">Delete</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <a routerLink="/product/form" id="app-navbar__link-product_form">Add Product</a>
+    <br>
+    <br>
+</div>
+<hr>
